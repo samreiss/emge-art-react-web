@@ -3,8 +3,8 @@ version: '3.8'
 services:
   # React Application
   web:
-    container_name: emge-art
-    image: samreiss/emge-art:latest
+    container_name: emge-art-react-web
+    image: samreiss/emge-art-react-web:latest
     ports:
       - "3010:80"
     environment:
