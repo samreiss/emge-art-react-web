@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { pageTitleWithSeparator } from '../common-variables';
 
 const Bio: React.FC = () => {
+    console.log('Rendering Meet Mrs. Nicole Reiss Page');
+
     useEffect(() => {
         document.title = pageTitleWithSeparator + 'Meet Mrs. Nicole Reiss';
     }, []);

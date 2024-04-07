@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { pageTitle } from '../common-variables';
 
 const Index: React.FC = () => {
+  console.log('Rendering Index Page');
+
   useEffect(() => {
     document.title = pageTitle;
   }, []);

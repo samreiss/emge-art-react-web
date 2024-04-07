@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { pageTitleWithSeparator } from '../common-variables';
 
 const EmgeSchoolArtShow: React.FC = () => {
+  console.log('Rendering Emge School Art Show Page');
+
   useEffect(() => {
     document.title = pageTitleWithSeparator + 'Emge School Art Show';
   }, []);

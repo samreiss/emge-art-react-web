@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { pageTitleWithSeparator } from '../common-variables';
 
 const DistrictK12ArtShow: React.FC = () => {
+  console.log('Rendering District K-12 Art Show Page');
+
   useEffect(() => {
     document.title = pageTitleWithSeparator + 'District K-12 Art Show';
   }, []);
@@ -30,7 +32,9 @@ const DistrictK12ArtShow: React.FC = () => {
                 Take a look at the 2011 District K-12 Art Show:
                 <br /><br />
                 <table>
-                  <tr><td valign="middle"><a href="https://naea.digication.com/fzsd/Welcome2/published" target="_blank" rel="noreferrer">Fort Zumwalt School District K-12 Art Show</a>&nbsp;</td><td align="right" valign="middle"><a href="https://naea.digication.com/fzsd/Welcome2/published" target="_blank" rel="noreferrer"><img src="images/pages/main_FortZumwaltLogo.jpg" width="50px" alt="Fort Zumwalt Logo" /></a></td></tr>
+                  <tbody>
+                    <tr><td valign="middle"><a href="https://naea.digication.com/fzsd/Welcome2/published" target="_blank" rel="noreferrer">Fort Zumwalt School District K-12 Art Show</a>&nbsp;</td><td align="right" valign="middle"><a href="https://naea.digication.com/fzsd/Welcome2/published" target="_blank" rel="noreferrer"><img src="images/pages/main_FortZumwaltLogo.jpg" width="50px" alt="Fort Zumwalt Logo" /></a></td></tr>
+                  </tbody>
                 </table>
               </td>
             </tr>

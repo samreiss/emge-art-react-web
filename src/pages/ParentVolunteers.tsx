@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { pageTitleWithSeparator } from '../common-variables';
 
 const ParentVolunteers: React.FC = () => {
+  console.log('Rendering Parent Volunteers Page');
+
   useEffect(() => {
     document.title = pageTitleWithSeparator + 'Parent Volunteers';
   }, []);

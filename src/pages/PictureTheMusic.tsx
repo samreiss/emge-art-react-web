@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { pageTitleWithSeparator } from '../common-variables';
 
 const PictureTheMusic: React.FC = () => {
+  console.log('Rendering Picture the Music Page');
+
   useEffect(() => {
     document.title = pageTitleWithSeparator + 'Picture the Music';
   }, []);

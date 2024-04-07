@@ -7,6 +7,8 @@ interface ContainerProps {
 }
 
 const Container: React.FC<ContainerProps> = ({ children }) => {
+  console.log('Rendering Container component');
+
   return (
     <div style={{ maxWidth: '984px', margin: '0 auto', padding: '0 20px' }}>
       <Header />

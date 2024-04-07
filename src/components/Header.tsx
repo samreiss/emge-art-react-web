@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
+  console.log('Rendering Header component');
+  
   return (
     <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <div>
