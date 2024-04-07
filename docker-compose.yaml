@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  # React Application
+  web:
+    container_name: emge-art
+    image: samreiss/emge-art:latest
+    ports:
+      - "3010:80"
+    environment:
+      - REACT_APP_DEBUG=true
+    restart: always
