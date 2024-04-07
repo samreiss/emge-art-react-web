@@ -1,0 +1,85 @@
+BODY
+{
+	font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+/* page title */
+div.title
+{
+	font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	color: #FFFFFF;
+	background-color: #000000;
+	font-weight: bold;
+}
+
+/* link */ /* unvisited link */ /* visited link */
+a.header:link, a.header:active, a.header:visited 
+{
+	font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #ffffff; 
+	text-decoration: none;
+}
+/* mouse over link */
+a.header:hover 
+{
+	font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px; 
+	color: #99BBFF; 
+	text-decoration: none;
+}
+
+.grid TABLE
+{
+	border-collapse: collapse;
+}
+
+.grid TH
+{
+	text-align:center;
+	font-weight: bold; 
+	color: #ffffff; 
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #E3DCE0;
+	border-bottom-color: #E3DCE0;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+}
+
+.grid TD
+{ 
+	text-align:center; 
+	color: #ffffff; 
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #E3DCE0;
+	border-bottom-color: #E3DCE0;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+}
+
+/* link */ /* unvisited link */ /* visited link */
+a:link, a:active, a:visited 
+{
+	color: #ffffff; 
+	text-decoration: underline;
+}
+/* mouse over link */
+a:hover 
+{ 
+	color: #99BBFF; 
+	text-decoration: underline;
+}
