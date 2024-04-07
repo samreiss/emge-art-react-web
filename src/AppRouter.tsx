@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Container from './components/Container';
+import Status from './pages/Status';
 import Index from './pages/Index';
 import Bio from './pages/Bio';
 import DistrictOfficeArtDisplay from './pages/DistrictOfficeArtDisplay';
@@ -17,6 +18,7 @@ const AppRouter: React.FC = () => {
       <Container>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/Status" element={<Status />} />
           <Route path="/Bio" element={<Bio />} />
           <Route path="/DistrictOfficeArtDisplay" element={<DistrictOfficeArtDisplay />} />
           <Route path="/DistrictK12ArtShow" element={<DistrictK12ArtShow />} />
@@ -24,7 +26,6 @@ const AppRouter: React.FC = () => {
           <Route path="/PictureTheMusic" element={<PictureTheMusic />} />
           <Route path="/ParentVolunteers" element={<ParentVolunteers />} />
           <Route path="/ArtLinks" element={<ArtLinks />} />
-          {/* Add more routes here if needed */}
         </Routes>
       </Container>
     </Router>
