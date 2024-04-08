@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { pageTitleWithSeparator } from '../common-variables';
 
-const Bio: React.FC = () => {
+const MeetNicoleReiss: React.FC = () => {
     console.log('Rendering Meet Mrs. Nicole Reiss Page');
 
     useEffect(() => {
@@ -54,4 +54,4 @@ const Bio: React.FC = () => {
     );
 }
 
-export default Bio;
+export default MeetNicoleReiss;

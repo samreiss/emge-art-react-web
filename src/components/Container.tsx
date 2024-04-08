@@ -8,7 +8,7 @@ interface ContainerProps {
 }
 
 const Container: React.FC<ContainerProps> = ({ children }) => {
-  console.log('Rendering Container component');
+  console.log('Rendering Container Component');
 
   return (
     <div style={{ width: '984px', margin: '0 auto', padding: '0 20px' }}>

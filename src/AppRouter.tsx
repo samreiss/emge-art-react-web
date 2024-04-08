@@ -1,10 +1,9 @@
-// AppRouter.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Container from './components/Container';
 import Status from './pages/Status';
 import Index from './pages/Index';
-import Bio from './pages/Bio';
+import Bio from './pages/MeetNicoleReiss';
 import DistrictOfficeArtDisplay from './pages/DistrictOfficeArtDisplay';
 import DistrictK12ArtShow from './pages/DistrictK12ArtShow';
 import EmgeSchoolArtShow from './pages/EmgeSchoolArtShow';
@@ -18,7 +17,7 @@ const AppRouter: React.FC = () => {
       <Routes>
         {/* Routes wrapped with Container */}
         <Route path="/" element={<Container><Index /></Container>} />
-        <Route path="/Bio" element={<Container><Bio /></Container>} />
+        <Route path="/MeetNicoleReiss" element={<Container><Bio /></Container>} />
         <Route path="/DistrictOfficeArtDisplay" element={<Container><DistrictOfficeArtDisplay /></Container>} />
         <Route path="/DistrictK12ArtShow" element={<Container><DistrictK12ArtShow /></Container>} />
         <Route path="/EmgeSchoolArtShow" element={<Container><EmgeSchoolArtShow /></Container>} />
