@@ -68,4 +68,4 @@ If you prefer using the pre-built Docker Compose, then use the provided `docker-
 docker-compose -f docker-compose.yaml up -d
 ```
 
-This command will start the Docker containers defined in the docker-compose.yaml file. The application will be accessible at localhost:3010 by default, or at the port you specified in the docker-compose.yaml file.
+This command will start the Docker containers defined in the docker-compose.yaml file. The application will be accessible at [http://localhost:3010](http://localhost:3010) by default, or at the port you specified in the docker-compose.yaml file.
