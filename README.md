@@ -1,5 +1,5 @@
+[![Build](https://github.com/samreiss/emge-art-react-web/actions/workflows/build-on-all-platforms.yml/badge.svg)](https://github.com/samreiss/emge-art-react-web/actions/workflows/build-on-all-platforms.yml)
 [![Docker Hub](https://github.com/samreiss/emge-art-react-web/actions/workflows/docker_hub.yml/badge.svg)](https://github.com/samreiss/emge-art-react-web/actions/workflows/docker_hub.yml)
-
 # Emge Art React Web
 
 This project is a website built for Mrs. Nicole Reiss, an art teacher at Emge Elementary in O'Fallon, Missouri. The website serves as a platform for Mrs. Reiss to showcase her work, share information about her teaching philosophy, and provide resources for her students and the school community.
