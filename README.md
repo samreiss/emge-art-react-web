@@ -62,9 +62,10 @@ To deploy this application using Docker, follow these steps:
 
 Note: You can change the port number 3010 to any desired port. The application can be accessed via localhost:<chosen_port>.
 
-If you prefer using the pre-built Docker Compose, then use the provided docker-compose.yaml file to build and run the Docker containers. Ensure you have Docker installed on your system and then run:
+If you prefer using the pre-built Docker Compose, then use the provided `docker-compose.yaml` file to build and run the Docker containers. Ensure you have Docker installed on your system and then run:
 
 ```bash
 docker-compose -f docker-compose.yaml up -d
+```
 
 This command will start the Docker containers defined in the docker-compose.yaml file. The application will be accessible at localhost:3010 by default, or at the port you specified in the docker-compose.yaml file.
