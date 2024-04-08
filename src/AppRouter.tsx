@@ -15,19 +15,20 @@ import ArtLinks from './pages/ArtLinks';
 const AppRouter: React.FC = () => {
   return (
     <Router>
-      <Container>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/Status" element={<Status />} />
-          <Route path="/Bio" element={<Bio />} />
-          <Route path="/DistrictOfficeArtDisplay" element={<DistrictOfficeArtDisplay />} />
-          <Route path="/DistrictK12ArtShow" element={<DistrictK12ArtShow />} />
-          <Route path="/EmgeSchoolArtShow" element={<EmgeSchoolArtShow />} />
-          <Route path="/PictureTheMusic" element={<PictureTheMusic />} />
-          <Route path="/ParentVolunteers" element={<ParentVolunteers />} />
-          <Route path="/ArtLinks" element={<ArtLinks />} />
-        </Routes>
-      </Container>
+      <Routes>
+        {/* Routes wrapped with Container */}
+        <Route path="/" element={<Container><Index /></Container>} />
+        <Route path="/Bio" element={<Container><Bio /></Container>} />
+        <Route path="/DistrictOfficeArtDisplay" element={<Container><DistrictOfficeArtDisplay /></Container>} />
+        <Route path="/DistrictK12ArtShow" element={<Container><DistrictK12ArtShow /></Container>} />
+        <Route path="/EmgeSchoolArtShow" element={<Container><EmgeSchoolArtShow /></Container>} />
+        <Route path="/PictureTheMusic" element={<Container><PictureTheMusic /></Container>} />
+        <Route path="/ParentVolunteers" element={<Container><ParentVolunteers /></Container>} />
+        <Route path="/ArtLinks" element={<Container><ArtLinks /></Container>} />
+
+        {/* Route without Container */}
+        <Route path="/Status" element={<Status />} />
+      </Routes>
     </Router>
   );
 };
