@@ -1,6 +1,28 @@
-# Getting Started with Create React App
+# Emge Art React Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a website built for Mrs. Nicole Reiss, an art teacher at Emge Elementary in O'Fallon, Missouri. The website serves as a platform for Mrs. Reiss to showcase her work, share information about her teaching philosophy, and provide resources for her students and the school community.
+
+## About Mrs. Nicole Reiss
+
+Mrs. Nicole Reiss has been teaching at Emge Elementary since the 2003-2004 school year. She instructs students in Kindergarten through 5th grade, focusing on art as a process and introducing art history, various artists, and styles to her students. Mrs. Reiss holds a Bachelor of Science in Art Education from the University of Missouri - Columbia and a Master of Arts in Art Education from Maryville University of Saint Louis.
+
+## Features
+
+- Learn about Mrs. Nicole Reiss's teaching philosophy and approach to elementary art education.
+- Explore different artists and art styles covered in Mrs. Reiss's curriculum.
+- View student artwork and projects created under Mrs. Reiss's guidance.
+- Access resources for students, including art project ideas and inspiration.
+- Information about Emge Elementary's Art Club, sponsored by Mrs. Reiss, for 4th and 5th-grade students.
+
+## Getting Started
+
+To run this project locally, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Run `npm install` to install dependencies.
+4. Start the development server by running `npm start`.
+5. Open [http://localhost:3000](http://localhost:3000) in your web browser to view the website.
 
 ## Available Scripts
 
@@ -8,39 +30,23 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production to the `build` folder.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Note: this is a one-way operation. Once you eject, you can't go back!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Docker Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This application can also be deployed using Docker. Use the provided `docker-compose.yaml` file to build and run the Docker containers. Ensure you have Docker installed on your system and then run:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+docker-compose -f docker-compose.yaml up -d
