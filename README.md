@@ -38,6 +38,18 @@ Runs the app in development mode. Open [http://localhost:3000](http://localhost:
 
 Builds the app for production to the `build` folder.
 
+## Dockerfile Details
+
+This application has been dockerized, meaning it has been packaged into a Docker container for easy deployment and portability. The Dockerfile includes two main steps:
+
+### Build Step
+
+In this step, the Node.js image is used to build the frontend application. The necessary dependencies are installed, and the application is built using npm. The resulting build artifacts are stored in the `/var/www/clientapp_frontend/build/` directory.
+
+### Release Step with NGINX and Alpine Linux
+
+In the release step, the NGINX image based on Alpine Linux is utilized to efficiently serve the frontend application. Alpine Linux is a lightweight Linux distribution, making it suitable for containerized environments due to its small size and efficient resource usage. NGINX, a high-performance web server, is configured to serve the built frontend artifacts. The NGINX configuration is tailored to suit the requirements of the frontend application, and the default NGINX configuration is removed to avoid conflicts.
+
 ## Docker Deployment
 
 To deploy this application using Docker, follow these steps:
