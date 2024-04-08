@@ -40,7 +40,31 @@ Builds the app for production to the `build` folder.
 
 ## Docker Deployment
 
-This application can also be deployed using Docker. Use the provided `docker-compose.yaml` file to build and run the Docker containers. Ensure you have Docker installed on your system and then run:
+To deploy this application using Docker, follow these steps:
+
+1. Ensure you have Docker installed on your system.
+
+2. Create a `docker-compose.yaml` file with the following content:
+
+   ```yaml
+   version: '3.8'
+
+   services:
+     # React Application
+     web:
+       container_name: emge-art-react-web
+       image: samreiss/emge-art-react-web:latest
+       ports:
+         - "3010:80"
+       environment:
+         - REACT_APP_DEBUG=true
+       restart: always
+
+Note: You can change the port number 3010 to any desired port. The application can be accessed via localhost:<chosen_port>.
+
+If you prefer using the pre-built Docker Compose, then use the provided docker-compose.yaml file to build and run the Docker containers. Ensure you have Docker installed on your system and then run:
 
 ```bash
 docker-compose -f docker-compose.yaml up -d
+
+This command will start the Docker containers defined in the docker-compose.yaml file. The application will be accessible at localhost:3010 by default, or at the port you specified in the docker-compose.yaml file.
