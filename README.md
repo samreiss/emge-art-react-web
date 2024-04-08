@@ -1,4 +1,4 @@
-[![Build on all Platforms](https://github.com/samreiss/emge-art-react-web/actions/workflows/build-on-all-platforms.yml/badge.svg)](https://github.com/samreiss/emge-art-react-web/actions/workflows/build-on-all-platforms.yml)
+[![Build](https://github.com/samreiss/emge-art-react-web/actions/workflows/build-on-all-platforms.yml/badge.svg)](https://github.com/samreiss/emge-art-react-web/actions/workflows/build-on-all-platforms.yml)
 [![Docker Hub](https://github.com/samreiss/emge-art-react-web/actions/workflows/docker_hub.yml/badge.svg)](https://github.com/samreiss/emge-art-react-web/actions/workflows/docker_hub.yml)
 # Emge Art React Web
 
