@@ -20,8 +20,8 @@ COPY --from=build /var/www/clientapp_frontend/build/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
 # remove the default nginx conf
 RUN rm /etc/nginx/conf.d/default.conf
-# Give the non-root user write permissions to /etc/nginx/conf.d
-RUN chown -R appuser:appgroup /etc/nginx/conf.d
+# Give the non-root user write permissions to /etc/nginx/conf.d and /var/cache/nginx
+RUN chown -R appuser:appgroup /etc/nginx/conf.d /var/cache/nginx
 # Set permissions for the non-root user on necessary directories
 RUN chown -R appuser:appgroup /usr/share/nginx/html
 # Expose the frontend port
