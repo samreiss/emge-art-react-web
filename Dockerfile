@@ -15,11 +15,16 @@ RUN npm run build
 FROM nginx:alpine-slim AS release
 # Create a non-root user and group
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+# Copy the built files from the build container
 COPY --from=build /var/www/clientapp_frontend/build/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
 # remove the default nginx conf
 RUN rm /etc/nginx/conf.d/default.conf
+# Set permissions for the non-root user on necessary directories
+RUN chown -R appuser:appgroup /usr/share/nginx/html
+# Expose the frontend port
 EXPOSE $FRONTEND_PORT
 # Switch to non-root user
 USER appuser
+# Use the custom entrypoint and start nginx
 ENTRYPOINT /bin/sh -x ./nginx_entrypoint.sh && nginx -g 'daemon off;'
