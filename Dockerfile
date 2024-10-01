@@ -28,5 +28,7 @@ RUN chown -R appuser:appgroup /usr/share/nginx/html
 EXPOSE $FRONTEND_PORT
 # Switch to non-root user
 USER appuser
+# Set up write permissions for the /usr/share/nginx/html directory
+RUN chmod -R 775 /usr/share/nginx/html
 # Use the custom entrypoint and start nginx
 ENTRYPOINT /bin/sh -x ./nginx_entrypoint.sh && nginx -g 'daemon off;'
