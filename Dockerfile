@@ -13,10 +13,13 @@ RUN npm run build
 
 # release step - take the dist build from the previous build container and using it in a nginx container
 FROM nginx:alpine-slim AS release
+# Create a non-root user and group
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 COPY --from=build /var/www/clientapp_frontend/build/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
 # remove the default nginx conf
 RUN rm /etc/nginx/conf.d/default.conf
 EXPOSE $FRONTEND_PORT
-USER nonroot
+# Switch to non-root user
+USER appuser
 ENTRYPOINT /bin/sh -x ./nginx_entrypoint.sh && nginx -g 'daemon off;'
