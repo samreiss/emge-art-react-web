@@ -52,3 +52,5 @@ jobs:
             samreiss/emge-art-react-web:latest
           platforms: linux/amd64,linux/arm64
           build-args: --no-cache
+          provenance: true  # Enables provenance attestation
+          sbom: true        # Enables SBOM attestation
