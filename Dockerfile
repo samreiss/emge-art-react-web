@@ -18,4 +18,5 @@ COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entryp
 # remove the default nginx conf
 RUN rm /etc/nginx/conf.d/default.conf
 EXPOSE $FRONTEND_PORT
+USER nonroot
 ENTRYPOINT /bin/sh -x ./nginx_entrypoint.sh && nginx -g 'daemon off;'
