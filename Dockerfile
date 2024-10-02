@@ -17,20 +17,22 @@ FROM nginx:alpine-slim AS release
 # Create a non-root user and group
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
-# Temporarily switch to root user to remove the default Nginx configuration
+# Temporarily switch to root user to copy files and set permissions
 USER root
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Switch back to non-root user
-USER appuser
 
 COPY --from=build /var/www/clientapp_frontend/build/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
 
-EXPOSE $FRONTEND_PORT
+# Remove the default nginx configuration
+RUN rm /etc/nginx/conf.d/default.conf
 
-# Ensure the non-root user can execute the entrypoint script
+# Ensure the entrypoint script is executable
 RUN chmod +x ./nginx_entrypoint.sh
+
+# Switch back to non-root user
+USER appuser
+
+EXPOSE $FRONTEND_PORT
 
 # Use JSON syntax for ENTRYPOINT (recommended)
 ENTRYPOINT ["/bin/sh", "-x", "./nginx_entrypoint.sh", "&&", "nginx", "-g", "daemon off;"]
