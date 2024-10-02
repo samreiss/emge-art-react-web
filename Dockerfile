@@ -37,5 +37,4 @@ USER appuser
 
 EXPOSE $FRONTEND_PORT
 
-# Use JSON syntax for ENTRYPOINT (recommended)
-ENTRYPOINT ["/bin/sh", "-x", "./nginx_entrypoint.sh", "&&", "nginx", "-g", "daemon off;"]
+ENTRYPOINT /bin/sh -x ./nginx_entrypoint.sh && nginx -g 'daemon off;'
