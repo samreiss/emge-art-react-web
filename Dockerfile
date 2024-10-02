@@ -29,6 +29,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 # Set the correct permissions so the non-root user can write to necessary directories
 RUN chmod -R 775 /usr/share/nginx/html && chown -R appuser:appgroup /usr/share/nginx/html
 RUN chmod -R 775 /var/cache/nginx && chown -R appuser:appgroup /var/cache/nginx
+RUN chmod -R 775 /etc/nginx/conf.d && chown -R appuser:appgroup /etc/nginx/conf.d
 
 # Ensure the entrypoint script is executable
 RUN chmod +x ./nginx_entrypoint.sh
