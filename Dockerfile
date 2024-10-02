@@ -11,33 +11,11 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# release step - take the dist build from the previous build container and use it in an nginx container
+# release step - take the dist build from the previous build container and using it in a nginx container
 FROM nginx:alpine-slim AS release
-
-# Create a non-root user and group
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-
-# Temporarily switch to root user to copy files, set permissions, and make the directories writable
-USER root
-
 COPY --from=build /var/www/clientapp_frontend/build/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
-
-# Remove the default nginx configuration
+# remove the default nginx conf
 RUN rm /etc/nginx/conf.d/default.conf
-
-# Set the correct permissions so the non-root user can write to necessary directories
-RUN chmod -R 775 /usr/share/nginx/html && chown -R appuser:appgroup /usr/share/nginx/html
-RUN chmod -R 775 /var/cache/nginx && chown -R appuser:appgroup /var/cache/nginx
-RUN chmod -R 775 /etc/nginx/conf.d && chown -R appuser:appgroup /etc/nginx/conf.d
-RUN chmod -R 775 /var/run && chown -R appuser:appgroup /var/run
-
-# Ensure the entrypoint script is executable
-RUN chmod +x ./nginx_entrypoint.sh
-
-# Switch back to non-root user
-USER appuser
-
 EXPOSE $FRONTEND_PORT
-
 ENTRYPOINT /bin/sh -x ./nginx_entrypoint.sh && nginx -g 'daemon off;'
