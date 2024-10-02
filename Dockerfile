@@ -23,11 +23,12 @@ USER root
 COPY --from=build /var/www/clientapp_frontend/build/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
 
-# Remove the default nginx configuration and allow non-root user to create and modify the new config
-RUN rm /etc/nginx/conf.d/default.conf && chmod 775 /etc/nginx/conf.d && chown -R appuser:appgroup /etc/nginx/conf.d
+# Remove the default nginx configuration
+RUN rm /etc/nginx/conf.d/default.conf
 
-# Ensure non-root user can write to /usr/share/nginx/html
+# Set the correct permissions so the non-root user can write to necessary directories
 RUN chmod -R 775 /usr/share/nginx/html && chown -R appuser:appgroup /usr/share/nginx/html
+RUN chmod -R 775 /var/cache/nginx && chown -R appuser:appgroup /var/cache/nginx
 
 # Ensure the entrypoint script is executable
 RUN chmod +x ./nginx_entrypoint.sh
