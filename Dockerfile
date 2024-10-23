@@ -1,21 +1,40 @@
 # syntax=docker/dockerfile:1
 
-# build step
+# Build step
 FROM --platform=$BUILDPLATFORM node:lts-alpine AS build
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM" > /log
-WORKDIR /var/www/clientapp_frontend 
+WORKDIR /var/www/clientapp_frontend
 COPY package.json .
 RUN npm install
 COPY . .
 RUN npm run build
 
-# release step - take the dist build from the previous build container and using it in a nginx container
+# Release step
 FROM nginx:alpine-slim AS release
+
+# Create a non-root user and group
+RUN addgroup -S nginxgroup && adduser -S nginxuser -G nginxgroup
+
+# Copy built files from build step
 COPY --from=build /var/www/clientapp_frontend/build/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
-# remove the default nginx conf
+
+# Set permissions to allow non-root user to access the necessary files
+RUN chown -R nginxuser:nginxgroup /usr/share/nginx/html && \
+    chown nginxuser:nginxgroup ./nginx_entrypoint.sh && \
+    chmod +x ./nginx_entrypoint.sh
+
+# Remove the default nginx configuration
 RUN rm /etc/nginx/conf.d/default.conf
+
+# Switch to the non-root user
+USER nginxuser
+
+# Expose the port for the frontend
 EXPOSE $FRONTEND_PORT
-ENTRYPOINT /bin/sh -x ./nginx_entrypoint.sh && nginx -g 'daemon off;'
+
+# Run the existing entrypoint script without modification
+ENTRYPOINT ["/bin/sh", "-x", "./nginx_entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
