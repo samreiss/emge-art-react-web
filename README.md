@@ -81,3 +81,7 @@ docker-compose -f docker-compose.yaml up -d
 ```
 
 This command will start the Docker containers defined in the docker-compose.yaml file. The application will be accessible at [http://localhost:3010](http://localhost:3010) by default, or at the port you specified in the docker-compose.yaml file.
+
+## Docker Hub
+
+You can find the Docker image for this project on Docker Hub: [https://hub.docker.com/r/samreiss/emge-art-react-web](https://hub.docker.com/r/samreiss/emge-art-react-web)
