@@ -27,12 +27,17 @@ RUN chown -R nginxuser:nginxgroup /usr/share/nginx/html && \
     chown nginxuser:nginxgroup ./nginx_entrypoint.sh && \
     chmod +x ./nginx_entrypoint.sh
 
-# Pre-create the cache directories and set permissions
+# Pre-create the cache and run directories and set permissions
 RUN mkdir -p /var/cache/nginx/client_temp && \
-    chown -R nginxuser:nginxgroup /var/cache/nginx
+    mkdir -p /tmp/nginx && \
+    chown -R nginxuser:nginxgroup /var/cache/nginx && \
+    chown -R nginxuser:nginxgroup /tmp/nginx
 
 # Remove the default nginx configuration
 RUN rm /etc/nginx/conf.d/default.conf
+
+# Update the Nginx configuration to use /tmp/nginx.pid instead of /var/run/nginx.pid
+RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
 
 # Switch to the non-root user
 USER nginxuser
