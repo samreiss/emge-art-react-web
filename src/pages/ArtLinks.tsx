@@ -31,7 +31,7 @@ const ArtLinks: React.FC = () => {
                                 <br></br><br></br>
                                 <a href="http://www.draw3d.com" target="_blank" rel="noreferrer">Mark Kistler's Imagination Station - www.draw3d.com</a>
                                 <br></br><br></br>
-                                NICOLE - THIS LINK IS BROKEN!!!<a href="http://www.mowa.org/kids" target="_blank" rel="noreferrer">Museum of Modern Art (kids) - www.mowa.org/kids</a>
+                                <a href="https://www.moma.org/visit/families/" target="_blank" rel="noreferrer">Museum of Modern Art (families)</a>
                                 <br></br><br></br>
                                 <a href="http://www.nga.gov/kids/zone" target="_blank" rel="noreferrer">National Gallery of Art (kids zone) - www.nga.gov/kids/zone</a>
                                 <br></br><br></br>
