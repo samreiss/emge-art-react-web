@@ -23,6 +23,7 @@ COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entryp
 
 # Set permissions to allow non-root user to access the necessary files
 RUN chown -R nginxuser:nginxgroup /usr/share/nginx/html && \
+    chown -R nginxuser:nginxgroup /etc/nginx/conf.d && \
     chown nginxuser:nginxgroup ./nginx_entrypoint.sh && \
     chmod +x ./nginx_entrypoint.sh
 
