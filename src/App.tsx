@@ -3,9 +3,9 @@ import AppRouter from './AppRouter';
 import { useGlobalDebug } from '../src/utils/useGlobalDebug'
 
 const App: React.FC = () => {
-  const isLoading = useGlobalDebug(); // turn on/off logging based on config
+  const isLoadingGlobalDebug = useGlobalDebug(); // turn on/off logging based on config
 
-  if (isLoading) {
+  if (isLoadingGlobalDebug) {
     return null; // Render nothing while loading
   }
 
