@@ -2,10 +2,10 @@
 set -e
 
 REACT_APP_FRONTEND_PORT=${FRONTEND_PORT:-80}
-REACT_APP_DEBUG=${REACT_APP_DEBUG:-true}
+REACT_APP_LOGGING_ENABLED=${REACT_APP_LOGGING_ENABLED:-true}
 
 # Create the .env file
-env_content="REACT_APP_DEBUG=${REACT_APP_DEBUG}"
+env_content="REACT_APP_LOGGING_ENABLED=${REACT_APP_LOGGING_ENABLED}"
 printf "$env_content" > /usr/share/nginx/html/.env
 
 # Create the env-config.js file with window._env_

@@ -8,5 +8,5 @@ services:
     ports:
       - "3010:80"
     environment:
-      - REACT_APP_DEBUG=true
+      - REACT_APP_LOGGING_ENABLED=true
     restart: always

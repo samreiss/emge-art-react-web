@@ -1,7 +1,7 @@
 // Extend the Window interface to include your custom property
 interface CustomWindow extends Window {
     _env_?: {
-      REACT_APP_DEBUG?: 'true' | 'false'
+      REACT_APP_LOGGING_ENABLED?: 'true' | 'false'
     }
   }
   
@@ -15,7 +15,7 @@ interface CustomWindow extends Window {
   
   // Create the configuration object
   const config: AppConfig = {
-    debug: ((env && env.REACT_APP_DEBUG) as 'true' | 'false') || 'true',
+    debug: ((env && env.REACT_APP_LOGGING_ENABLED) as 'true' | 'false') || 'true',
   }
   
   export default config

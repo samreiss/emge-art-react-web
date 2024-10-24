@@ -69,7 +69,7 @@ To deploy this application using Docker, follow these steps:
        ports:
          - "3010:80"
        environment:
-         - REACT_APP_DEBUG=true
+         - REACT_APP_LOGGING_ENABLED=true
        restart: always
 
 Note: You can change the port number 3010 to any desired port. The application can be accessed via localhost:<chosen_port>.
