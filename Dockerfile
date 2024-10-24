@@ -27,6 +27,10 @@ RUN chown -R nginxuser:nginxgroup /usr/share/nginx/html && \
     chown nginxuser:nginxgroup ./nginx_entrypoint.sh && \
     chmod +x ./nginx_entrypoint.sh
 
+# Pre-create the cache directories and set permissions
+RUN mkdir -p /var/cache/nginx/client_temp && \
+    chown -R nginxuser:nginxgroup /var/cache/nginx
+
 # Remove the default nginx configuration
 RUN rm /etc/nginx/conf.d/default.conf
 
