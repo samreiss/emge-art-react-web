@@ -15,12 +15,12 @@ WORKDIR /var/www/clientapp_frontend
 COPY package.json .
 
 # Install dependencies with clean refresh
-RUN make clean_refresh
+RUN yarn install
 
 COPY . .
 
 # Build the ReactJS app using the Makefile command
-RUN make build
+RUN yarn build
 
 # Release step
 FROM nginx:alpine-slim AS release
