@@ -23,26 +23,30 @@ clean-docker:
 # Target: install
 # Description: Install dependencies
 install:
-	npm install
+	yarn install
+
+# Clean all node_modules, yarn.lock, package-lock.json, and .vite files, then refresh dependencies
+clean_refresh:
+	yarn cache clean
+	find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+	find . -name "build" -type d -prune -exec rm -rf '{}' +
+	find . -name "dist" -type d -prune -exec rm -rf '{}' +
+	find . -name "yarn.lock" -type f -exec rm -f '{}' +
+	find . -name "package-lock.json" -type f -exec rm -f '{}' +
+	find . -name ".vite" -type d -prune -exec rm -rf '{}' +
+	yarn install --force
 
 # Target: start
 # Description: Start the Vite development server
 start:
-	npm run dev
+	yarn dev
 
 # Target: build
 # Description: Build the production-ready Vite app
 build:
-	npm run build
+	yarn build
 
 # Target: test
 # Description: Run tests
 test:
-	npm test
-
-# Target: clean
-# Description: Clean generated files
-clean:
-	rm -rf node_modules
-	rm -rf dist
-	rm -rf build
+	yarn test

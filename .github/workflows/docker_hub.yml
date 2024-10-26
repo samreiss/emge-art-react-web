@@ -35,8 +35,8 @@ jobs:
       # Install dependencies and build React app
       - name: Install dependencies and build React app
         run: |
-          npm install
-          npm run build
+          yarn install
+          yarn build
       
       - name: Set Date
         id: set_date

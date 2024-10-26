@@ -1,6 +1,7 @@
 {
   "name": "emge-art-react-web",
   "version": "1.0.0",
+  "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

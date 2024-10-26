@@ -5,11 +5,22 @@ FROM --platform=$BUILDPLATFORM node:lts-alpine AS build
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM" > /log
+
+# Install build tools, including make
+RUN apk add --no-cache make bash
+
+# Set the working directory
 WORKDIR /var/www/clientapp_frontend
+
 COPY package.json .
-RUN npm install
+
+# Install dependencies with clean refresh
+RUN make clean_refresh
+
 COPY . .
-RUN npm run build
+
+# Build the ReactJS app using the Makefile command
+RUN make build
 
 # Release step
 FROM nginx:alpine-slim AS release
@@ -18,7 +29,7 @@ FROM nginx:alpine-slim AS release
 RUN addgroup -S nginxgroup && adduser -S nginxuser -G nginxgroup
 
 # Copy built files from build step
-COPY --from=build /var/www/clientapp_frontend/build/ /usr/share/nginx/html
+COPY --from=build /var/www/clientapp_frontend/dist/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
 
 # Set permissions to allow non-root user to access the necessary files

@@ -22,21 +22,21 @@ To run this project locally, follow these steps:
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory.
-3. Run `npm install` to install dependencies.
-4. Start the development server by running `npm start`.
-5. Open [http://localhost:3000](http://localhost:3000) in your web browser to view the website.
+3. Run `make clean_refresh` to install dependencies.
+4. Start the development server by running `make start`.
+5. Open [http://localhost:5173](http://localhost:5173) in your web browser to view the website.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `make start`
 
-Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in development mode. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-### `npm run build`
+### `make build`
 
-Builds the app for production to the `build` folder.
+Builds the app for production to the `dist` folder.
 
 ## Dockerfile Details
 
@@ -44,7 +44,7 @@ This application has been dockerized, meaning it has been packaged into a Docker
 
 ### Build Step
 
-In this step, the Node.js image is used to build the frontend application. The necessary dependencies are installed, and the application is built using npm. The resulting build artifacts are stored in the `/var/www/clientapp_frontend/build/` directory.
+In this step, the Node.js image is used to build the frontend application. The necessary dependencies are installed, and the application is built using yarn. The resulting build artifacts are stored in the `/var/www/clientapp_frontend/dist/` directory.
 
 ### Release Step with NGINX and Alpine Linux
 
