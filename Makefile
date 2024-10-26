@@ -26,12 +26,12 @@ install:
 	npm install
 
 # Target: start
-# Description: Start the development server
+# Description: Start the Vite development server
 start:
-	npm start
+	npm run dev
 
 # Target: build
-# Description: Build the production-ready app
+# Description: Build the production-ready Vite app
 build:
 	npm run build
 
@@ -44,4 +44,5 @@ test:
 # Description: Clean generated files
 clean:
 	rm -rf node_modules
+	rm -rf dist
 	rm -rf build

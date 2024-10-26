@@ -1,0 +1,10 @@
+{
+    "name": "Emge Art",
+    "short_name": "EmgeArt",
+    "description": "React web app for Mrs. Nicole Reiss, an elementary art teacher at Emge Elementary School.",
+    "lang": "en",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000"
+  }
