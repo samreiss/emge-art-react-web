@@ -22,21 +22,31 @@ To run this project locally, follow these steps:
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory.
-3. Run `make clean_refresh` to install dependencies.
-4. Start the development server by running `make start`.
-5. Open [http://localhost:5173](http://localhost:5173) in your web browser to view the website.
+3. Run `yarn install` to install dependencies.
+4. Start the development server by running `yarn dev`.
+5. Open [http://localhost:5173](http://localhost:5173) in your web browser to view the website. (Note: Port 5173 is the default for Vite)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `make start`
+### `yarn dev`
 
-Runs the app in development mode. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+Runs the app in development mode. Open [http://localhost:5173](http://localhost:5173) to view it in the browser. (Note: Port 5173 is the default for Vite)
 
-### `make build`
+### `yarn build`
 
 Builds the app for production to the `dist` folder.
+
+## Vite
+
+This project uses Vite as the build tool. Vite is a fast and modern build tool that leverages native ES modules and provides a lightning-fast development server. It is designed to improve the development experience with features like hot module replacement (HMR) and optimized builds.
+
+### Key Features of Vite
+
+- **Instant Server Start**: Vite starts the development server instantly, even for large projects.
+- **Lightning-Fast HMR**: Hot Module Replacement (HMR) updates modules in the browser instantly without a full reload.
+- **Optimized Builds**: Vite uses Rollup for production builds, ensuring optimized and efficient output.
 
 ## Dockerfile Details
 
@@ -71,6 +81,7 @@ To deploy this application using Docker, follow these steps:
        environment:
          - REACT_APP_LOGGING_ENABLED=true
        restart: always
+   ```
 
 Note: You can change the port number 3010 to any desired port. The application can be accessed via localhost:<chosen_port>.
 
