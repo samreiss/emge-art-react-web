@@ -1,6 +1,13 @@
 name: Deploy to Azure App Service
 
 on:
+  workflow_dispatch: # Allows manual trigger without branch selection
+    inputs:
+      trigger:
+        description: "Manually trigger deployment to Azure"
+        required: false
+        default: "main"
+        
   workflow_run:
     workflows: ["Publish to Docker Hub"]
     types:
@@ -11,15 +18,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Log in to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-        images: samreiss/emge-art-react-web:latest
-        resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
-        login-server: index.docker.io
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          images: samreiss/emge-art-react-web:latest
+          resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
+          login-server: index.docker.io
