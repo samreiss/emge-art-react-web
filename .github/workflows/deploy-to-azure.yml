@@ -1,10 +1,7 @@
 name: Deploy to Azure App Service
 
 on:
-  workflow_dispatch: # Allows manual trigger without branch selection
-    inputs:
-      trigger:
-        description: "Manually Trigger Deployment to Azure App Service"
+  workflow_dispatch:
         
   workflow_run:
     workflows: ["Publish to Docker Hub"]
