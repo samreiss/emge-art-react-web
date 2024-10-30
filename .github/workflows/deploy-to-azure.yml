@@ -20,15 +20,3 @@ jobs:
         images: samreiss/emge-art-react-web:latest
         resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
         login-server: index.docker.io
-
-    # Update the deployment date
-    - name: Update last successful deployment date
-      run: |
-        echo "{ \"date\": \"$(date -u +'%Y-%m-%d %H:%M UTC')\" }" > last_successful_deployment.json
-
-    # Commit and push the date file
-    - name: Commit last deployment date
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: "Update last successful deployment date"
-        file_pattern: last_successful_deployment.json
