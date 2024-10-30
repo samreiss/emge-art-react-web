@@ -1,7 +1,10 @@
 name: Deploy to Azure App Service
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build on all Platforms", "Deploy to Docker Hub"]
+    types:
+      - completed 
 
 jobs:
   deploy:
