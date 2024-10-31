@@ -34,6 +34,8 @@ clean_refresh:
 	find . -name "yarn.lock" -type f -exec rm -f '{}' +
 	find . -name "package-lock.json" -type f -exec rm -f '{}' +
 	find . -name ".vite" -type d -prune -exec rm -rf '{}' +
+	find . -name "playwrite-report" -type d -prune -exec rm -rf '{}' +
+	find . -name "test-results" -type d -prune -exec rm -rf '{}' +
 	yarn install --force
 
 # Target: start
@@ -48,5 +50,10 @@ build:
 
 # Target: test
 # Description: Run tests
-test:
-	yarn test
+test-unit:
+	yarn test:unit
+
+# Target: test e2e
+# Description: Run end-to-end tests
+test-e2e:
+	yarn test:e2e
