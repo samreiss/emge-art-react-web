@@ -38,6 +38,10 @@ clean_refresh:
 	find . -name "test-results" -type d -prune -exec rm -rf '{}' +
 	yarn install --force
 
+# Upgrade dependencies interactively
+update:
+	yarn upgrade-interactive --latest
+
 # Target: start
 # Description: Start the Vite development server
 start:
