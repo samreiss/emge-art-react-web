@@ -48,7 +48,10 @@ RUN mkdir -p /var/cache/nginx/client_temp && \
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Update the Nginx configuration to use /tmp/nginx.pid instead of /var/run/nginx.pid
-RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
+#RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
+
+# Correct: inject full top-level pid directive into the main config
+RUN sed -i '1s;^;pid /tmp/nginx/nginx.pid;\n;' /etc/nginx/nginx.conf
 
 # Switch to the non-root user
 USER nginxuser
