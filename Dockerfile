@@ -23,7 +23,7 @@ COPY . .
 RUN yarn build
 
 # Release step
-FROM nginx:alpine-slim AS release
+FROM nginx:stable-alpine-slim AS release
 
 # Create a non-root user and group
 RUN addgroup -S nginxgroup && adduser -S nginxuser -G nginxgroup
