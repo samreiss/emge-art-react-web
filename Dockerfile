@@ -57,5 +57,8 @@ USER nginxuser
 EXPOSE $FRONTEND_PORT
 
 # Run the existing entrypoint script without modification
+#ENTRYPOINT ["/bin/sh", "-x", "./nginx_entrypoint.sh"]
+#CMD ["nginx", "-g", "daemon off;"]
+
 ENTRYPOINT ["/bin/sh", "-x", "./nginx_entrypoint.sh"]
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "pid /tmp/nginx/nginx.pid; daemon off;"]
