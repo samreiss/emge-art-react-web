@@ -25,6 +25,9 @@ RUN yarn build
 # Release step
 FROM nginx:stable-alpine-slim AS release
 
+# install the wget utility
+RUN apk add --no-cache wget
+
 # Create a non-root user and group
 RUN addgroup -S nginxgroup && adduser -S nginxuser -G nginxgroup
 
@@ -48,7 +51,7 @@ RUN mkdir -p /var/cache/nginx/client_temp && \
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Update the Nginx configuration to use /tmp/nginx.pid instead of /var/run/nginx.pid
-RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
+#RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
 
 # Remove pid directive from nginx.conf (if it exists)
 RUN sed -i '/pid\s\+/d' /etc/nginx/nginx.conf
@@ -62,6 +65,9 @@ EXPOSE $FRONTEND_PORT
 # Run the existing entrypoint script without modification
 #ENTRYPOINT ["/bin/sh", "-x", "./nginx_entrypoint.sh"]
 #CMD ["nginx", "-g", "daemon off;"]
+
+# Healthcheck to ensure the Nginx server is running
+HEALTHCHECK CMD wget --spider --quiet http://localhost/status.html || exit 1
 
 ENTRYPOINT ["/bin/sh", "-x", "./nginx_entrypoint.sh"]
 CMD ["nginx", "-g", "pid /tmp/nginx/nginx.pid; daemon off;"]
