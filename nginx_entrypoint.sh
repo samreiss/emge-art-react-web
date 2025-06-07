@@ -16,6 +16,7 @@ echo "};" >> /usr/share/nginx/html/env-config.js
 # Configure Nginx server
 content_server='server {\n'
 content_server=$content_server"    listen ${REACT_APP_FRONTEND_PORT};\n"
+content_server=$content_server'    pid /tmp/nginx.pid;\n'
 content_server=$content_server'    location / {\n'
 content_server=$content_server'        root /usr/share/nginx/html;\n'
 content_server=$content_server'        index index.html index.htm;\n'

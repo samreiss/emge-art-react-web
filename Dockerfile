@@ -44,11 +44,14 @@ RUN mkdir -p /var/cache/nginx/client_temp && \
     chown -R nginxuser:nginxgroup /var/cache/nginx && \
     chown -R nginxuser:nginxgroup /tmp/nginx
 
+# Ensure /tmp directory is writable
+RUN mkdir -p /tmp/nginx && chown -R nginxuser:nginxgroup /tmp/nginx
+
 # Remove the default nginx configuration
 RUN rm /etc/nginx/conf.d/default.conf
 
-# Update the Nginx configuration to use /tmp/nginx.pid instead of /var/run/nginx.pid
-RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
+# Update the Nginx configuration to use /tmp/nginx.pid instead of /run/nginx.pid
+RUN sed -i 's|/run/nginx.pid|/tmp/nginx.pid|' /etc/nginx/nginx.conf
 
 # Switch to the non-root user
 USER nginxuser
