@@ -28,9 +28,6 @@ FROM nginx:stable-alpine-slim AS release
 # Create a non-root user and group
 RUN addgroup -S nginxgroup && adduser -S nginxuser -G nginxgroup
 
-# Modify nginx.conf while still root and before switching user
-RUN sed -i '1s;^;pid /tmp/nginx/nginx.pid;\n;' /etc/nginx/nginx.conf
-
 # Copy built files from build step
 COPY --from=build /var/www/clientapp_frontend/dist/ /usr/share/nginx/html
 COPY --from=build /var/www/clientapp_frontend/nginx_entrypoint.sh ./nginx_entrypoint.sh
@@ -51,7 +48,7 @@ RUN mkdir -p /var/cache/nginx/client_temp && \
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Update the Nginx configuration to use /tmp/nginx.pid instead of /var/run/nginx.pid
-#RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
+RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
 
 # Switch to the non-root user
 USER nginxuser
