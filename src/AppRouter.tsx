@@ -24,9 +24,6 @@ const AppRouter: React.FC = () => {
         <Route path="/PictureTheMusic" element={<Container><PictureTheMusic /></Container>} />
         <Route path="/ParentVolunteers" element={<Container><ParentVolunteers /></Container>} />
         <Route path="/ArtLinks" element={<Container><ArtLinks /></Container>} />
-
-        {/* Route without Container */}
-        <Route path="/Status" element={<Status />} />
       </Routes>
     </Router>
   );
