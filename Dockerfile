@@ -50,6 +50,9 @@ RUN rm /etc/nginx/conf.d/default.conf
 # Update the Nginx configuration to use /tmp/nginx.pid instead of /var/run/nginx.pid
 RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx/nginx.pid|' /etc/nginx/nginx.conf
 
+# Remove pid directive from nginx.conf (if it exists)
+RUN sed -i '/pid\s\+/d' /etc/nginx/nginx.conf
+
 # Switch to the non-root user
 USER nginxuser
 
