@@ -22,5 +22,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-          images: samreiss/emge-art-react-web:latest
+          images: samreissteam/emge-art-react-web:latest
           resource-group-name: ${{ secrets.AZURE_RESOURCE_GROUP }}

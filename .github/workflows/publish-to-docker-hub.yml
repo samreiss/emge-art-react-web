@@ -48,8 +48,8 @@ jobs:
           context: .
           push: true
           tags: |
-            samreiss/emge-art-react-web:${{ env.IMAGE_DATE }}.${{ github.sha }}
-            samreiss/emge-art-react-web:latest
+            samreissteam/emge-art-react-web:${{ env.IMAGE_DATE }}.${{ github.sha }}
+            samreissteam/emge-art-react-web:latest
           platforms: linux/amd64,linux/arm64
           build-args: --no-cache
           provenance: true  # Enables provenance attestation
