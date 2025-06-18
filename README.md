@@ -96,4 +96,4 @@ This command will start the Docker containers defined in the docker-compose.yaml
 
 ## Docker Hub
 
-You can find the Docker image for this project on Docker Hub: [https://hub.docker.com/r/samreissteam/emge-art-react-web](https://hub.docker.com/r/samreiss/emge-art-react-web)
+You can find the Docker image for this project on Docker Hub: [https://hub.docker.com/r/samreissteam/emge-art-react-web](https://hub.docker.com/r/samreissteam/emge-art-react-web)
