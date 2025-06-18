@@ -76,7 +76,7 @@ To deploy this application using Docker, follow these steps:
      # React Application
      web:
        container_name: emge-art-react-web
-       image: samreiss/emge-art-react-web:latest
+       image: samreissteam/emge-art-react-web:latest
        ports:
          - "3010:80"
        environment:
@@ -96,4 +96,4 @@ This command will start the Docker containers defined in the docker-compose.yaml
 
 ## Docker Hub
 
-You can find the Docker image for this project on Docker Hub: [https://hub.docker.com/r/samreiss/emge-art-react-web](https://hub.docker.com/r/samreiss/emge-art-react-web)
+You can find the Docker image for this project on Docker Hub: [https://hub.docker.com/r/samreissteam/emge-art-react-web](https://hub.docker.com/r/samreiss/emge-art-react-web)
