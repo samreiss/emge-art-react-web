@@ -62,10 +62,6 @@ USER nginxuser
 # Expose the port for the frontend
 EXPOSE $FRONTEND_PORT
 
-# Run the existing entrypoint script without modification
-#ENTRYPOINT ["/bin/sh", "-x", "./nginx_entrypoint.sh"]
-#CMD ["nginx", "-g", "daemon off;"]
-
 # Healthcheck to ensure the Nginx server is running
 HEALTHCHECK CMD wget --spider --quiet http://localhost/status.html || exit 1
 
