@@ -23,7 +23,7 @@ COPY . .
 RUN yarn build
 
 # Release step
-FROM cgr.dev/chainguard/nginx:latest AS release
+FROM nginx:1.27-alpine-slim AS release
 
 # install the wget utility
 RUN apk add --no-cache wget
