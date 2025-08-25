@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1
+# syntax=docker/dockerfile:1.7
 
 # Build step
 FROM --platform=$BUILDPLATFORM node:22-alpine AS build
@@ -23,7 +23,7 @@ COPY . .
 RUN yarn build
 
 # Release step
-FROM nginx:1.27-alpine-slim AS release
+FROM cgr.dev/chainguard/nginx:latest AS release
 
 # install the wget utility
 RUN apk add --no-cache wget
