@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Build step
-FROM --platform=$BUILDPLATFORM node:lts-alpine AS build
+FROM --platform=$BUILDPLATFORM node:22-alpine AS build
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM" > /log
@@ -23,7 +23,7 @@ COPY . .
 RUN yarn build
 
 # Release step
-FROM nginx:stable-alpine-slim AS release
+FROM nginx:1.27-alpine-slim AS release
 
 # install the wget utility
 RUN apk add --no-cache wget
