@@ -6,13 +6,11 @@ ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM" > /log
 
-# Upgrade all Alpine packages to fix vulnerabilities
+# Upgrade all Alpine packages to fix vulnerabilities and install build tools
 RUN apk update && \
     apk upgrade && \
+    apk add --no-cache make bash && \
     rm -rf /var/cache/apk/*
-
-# Install build tools, including make
-RUN apk add --no-cache make bash
 
 # Set the working directory
 WORKDIR /var/www/clientapp_frontend
@@ -30,13 +28,11 @@ RUN yarn build
 # Release step
 FROM nginx:alpine-slim AS release
 
-# Upgrade all Alpine packages to fix vulnerabilities
+# Upgrade all Alpine packages to fix vulnerabilities and install wget utility
 RUN apk update && \
     apk upgrade && \
+    apk add --no-cache wget && \
     rm -rf /var/cache/apk/*
-
-# install the wget utility
-RUN apk add --no-cache wget
 
 # Create a non-root user and group
 RUN addgroup -S nginxgroup && adduser -S nginxuser -G nginxgroup
